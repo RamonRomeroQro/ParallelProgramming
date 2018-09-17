@@ -1,0 +1,245 @@
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 1000000000 1
+
+
+Threads = 1
+Iterations = 1.0E9
+PI = 3.1415926535899708
+
+
+
+real	0m3.811s
+user	0m3.883s
+sys	0m0.061s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 1000000000 2
+
+
+Threads = 2
+Iterations = 1.0E9
+PI = 3.141592653589901
+
+
+
+real	0m2.137s
+user	0m4.041s
+sys	0m0.063s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 1000000000 3
+
+
+Threads = 3
+Iterations = 1.0E9
+PI = 3.1415926535899623
+
+
+
+real	0m1.697s
+user	0m4.425s
+sys	0m0.056s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 1000000000 4
+
+
+Threads = 4
+Iterations = 1.0E9
+PI = 3.141592653589821
+
+
+
+real	0m1.434s
+user	0m4.882s
+sys	0m0.057s
+
+
+MacBook-Pro-de-Ramon-2:single-thread ramonromero$ time java Single 1000000
+
+
+Threads = 1
+Iterations = 1000000.0
+PI = 3.1415926535897643
+
+
+
+real	0m0.230s
+user	0m0.277s
+sys	0m0.049s
+MacBook-Pro-de-Ramon-2:single-thread ramonromero$ time java Single 10000000
+
+
+Threads = 1
+Iterations = 1.0E7
+PI = 3.141592653589731
+
+
+
+real	0m0.330s
+user	0m0.374s
+sys	0m0.062s
+MacBook-Pro-de-Ramon-2:single-thread ramonromero$ time java Single 100000000
+
+
+Threads = 1
+Iterations = 1.0E8
+PI = 3.1415926535904264
+
+
+
+real	0m0.613s
+user	0m0.680s
+sys	0m0.053s
+MacBook-Pro-de-Ramon-2:single-thread ramonromero$ time java Single 1000000000
+
+
+Threads = 1
+Iterations = 1.0E9
+PI = 3.1415926535899708
+
+
+
+real	0m3.818s
+user	0m3.837s
+sys	0m0.062s
+
+
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 1000000 2
+
+
+Threads = 2
+Iterations = 1000000.0
+PI = 3.1415926535898993
+
+
+
+real	0m0.277s
+user	0m0.355s
+sys	0m0.058s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 10000000 2
+
+
+Threads = 2
+Iterations = 1.0E7
+PI = 3.141592653589923
+
+
+
+real	0m0.292s
+user	0m0.401s
+sys	0m0.053s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 100000000 2
+
+
+Threads = 2
+Iterations = 1.0E8
+PI = 3.14159265358991
+
+
+
+real	0m0.447s
+user	0m0.715s
+sys	0m0.055s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 1000000000 2
+
+
+Threads = 2
+Iterations = 1.0E9
+PI = 3.141592653589901
+
+
+
+real	0m2.045s
+user	0m3.899s
+sys	0m0.057s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 1000000 3
+
+
+Threads = 3
+Iterations = 1000000.0
+PI = 3.141592653589904
+
+
+
+real	0m0.275s
+user	0m0.363s
+sys	0m0.057s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 10000000 3
+
+
+Threads = 3
+Iterations = 1.0E7
+PI = 3.141592653589728
+
+
+
+real	0m0.282s
+user	0m0.394s
+sys	0m0.053s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 100000000 3
+
+
+Threads = 3
+Iterations = 1.0E8
+PI = 3.14159265358957
+
+
+
+real	0m0.406s
+user	0m0.760s
+sys	0m0.052s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 1000000000 3
+
+
+Threads = 3
+Iterations = 1.0E9
+PI = 3.1415926535899623
+
+
+
+real	0m1.652s
+user	0m4.479s
+sys	0m0.056s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 1000000 4
+
+
+Threads = 4
+Iterations = 1000000.0
+PI = 3.1415926535898757
+
+
+
+real	0m0.282s
+user	0m0.379s
+sys	0m0.056s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 10000000 4
+
+
+Threads = 4
+Iterations = 1.0E7
+PI = 3.1415926535896697
+
+
+
+real	0m0.292s
+user	0m0.428s
+sys	0m0.054s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 100000000 4
+
+
+Threads = 4
+Iterations = 1.0E8
+PI = 3.1415926535896825
+
+
+
+real	0m0.508s
+user	0m1.285s
+sys	0m0.054s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main 1000000000 4
+
+
+Threads = 4
+Iterations = 1.0E9
+PI = 3.141592653589821
+
+
+
+real	0m1.433s
+user	0m4.837s
+sys	0m0.061s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$

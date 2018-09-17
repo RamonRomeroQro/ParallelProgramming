@@ -1,0 +1,134 @@
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ javac Main.java
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main
+
+
+Threads = 4
+Iterations = 100000.0
+PI = 3.141592653598127
+
+
+
+real	0m0.265s
+user	0m0.336s
+sys	0m0.054s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main
+
+
+Threads = 4
+Iterations = 100000.0
+PI = 3.141592653598127
+
+
+
+real	0m0.278s
+user	0m0.350s
+sys	0m0.055s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main
+
+
+Threads = 4
+Iterations = 100000.0
+PI = 3.141592653598127
+
+
+
+real	0m0.253s
+user	0m0.331s
+sys	0m0.051s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main
+
+
+Threads = 4
+Iterations = 100000.0
+PI = 3.141592653598127
+
+
+
+real	0m0.261s
+user	0m0.333s
+sys	0m0.052s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main
+
+
+Threads = 4
+Iterations = 100000.0
+PI = 3.141592653598127
+
+
+
+real	0m0.258s
+user	0m0.335s
+sys	0m0.050s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main
+
+
+Threads = 4
+Iterations = 100000.0
+PI = 3.141592653598127
+
+
+
+real	0m0.258s
+user	0m0.329s
+sys	0m0.054s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main
+
+
+Threads = 4
+Iterations = 100000.0
+PI = 3.141592653598127
+
+
+
+real	0m0.253s
+user	0m0.327s
+sys	0m0.049s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main
+
+
+Threads = 4
+Iterations = 100000.0
+PI = 3.141592653598127
+
+
+
+real	0m0.258s
+user	0m0.338s
+sys	0m0.049s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main
+
+
+Threads = 4
+Iterations = 100000.0
+PI = 3.141592653598127
+
+
+
+real	0m0.261s
+user	0m0.338s
+sys	0m0.052s
+MacBook-Pro-de-Ramon-2:multi-thread ramonromero$ time java Main
+
+
+Threads = 4
+Iterations = 100000.0
+PI = 3.141592653598127
+
+
+
+real	0m0.254s
+user	0m0.326s
+sys	0m0.050s
+
+
+
+----------------------------------------------------------------
+----------------------------------------------------------------
+----------------------------------------------------------------
+----------------------------------------------------------------
+----------------------------------------------------------------
+----------------------------------------------------------------
+
+
+
+
