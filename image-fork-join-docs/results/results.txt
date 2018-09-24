@@ -1,0 +1,17 @@
+MacBook-Pro-de-Ramon-2:forkJoin ramonromero$ rm *.class
+MacBook-Pro-de-Ramon-2:forkJoin ramonromero$ javac MainMulti.java
+
+MacBook-Pro-de-Ramon-2:forkJoin ramonromero$ java MainMulti imagen1.jpg
+avg time = 102.00000
+MacBook-Pro-de-Ramon-2:forkJoin ramonromero$ java MainMulti imagen2.jpg
+avg time = 88.80000
+MacBook-Pro-de-Ramon-2:forkJoin ramonromero$ cd ..
+MacBook-Pro-de-Ramon-2:image-fork-join-docs ramonromero$ ls
+forkJoin        secuential
+MacBook-Pro-de-Ramon-2:image-fork-join-docs ramonromero$ cd secuential/
+MacBook-Pro-de-Ramon-2:secuential ramonromero$ rm *.class
+MacBook-Pro-de-Ramon-2:secuential ramonromero$ javac MainSingle.java
+MacBook-Pro-de-Ramon-2:secuential ramonromero$ java MainSingle imagen1.jpg
+avg time = 169.30000
+MacBook-Pro-de-Ramon-2:secuential ramonromero$ java MainSingle imagen2.jpg
+avg time = 216.60000
