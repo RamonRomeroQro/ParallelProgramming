@@ -18,7 +18,7 @@ MacBook Pro (Retina, 13-inch, Early 2015)
 
 Compilacion:
 Single: $ g++ searchlinear.cpp -o single.out
-Multi:  $ g++ searchtbb.c -o multi.out
+Multi:  $ g++ -ltbb searchtbb.c -o multi.out
 
 Ejecucion:
 Single:	$ ./single.out
