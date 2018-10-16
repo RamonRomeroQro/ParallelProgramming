@@ -12,7 +12,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include <sys/types.h>
-#define SIZE 100
+#define SIZE 10000
 #define N 			1
 #define DISPLAY		100
 #define MAX_VALUE	100

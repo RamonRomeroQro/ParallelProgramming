@@ -1,4 +1,8 @@
+/*
+    José Ramón Fernando Romero Chávez
+    A01700318
 
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,7 +10,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include <sys/types.h>
-#define N 			1
+#define N 			10
 
 
   struct timeval startTime, stopTime;
@@ -30,6 +34,9 @@
    }
    return duration;
   }
+
+
+
 
 long double montecarlo(int number_of_tosses){
   int number_in_circle = 0;
@@ -57,7 +64,7 @@ long double montecarlo(int number_of_tosses){
 
 int main(int argc, char const *argv[]) {
   srand ( time ( NULL));
-  int number_of_tosses=10000000;
+  int number_of_tosses=1000000;
   ///
   int i=0;
    double ms;
