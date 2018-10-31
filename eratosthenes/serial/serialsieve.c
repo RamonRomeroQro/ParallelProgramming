@@ -18,11 +18,13 @@ void sieve(int sqroot, int limit, int * arr){
   int m;
   for(c = 2; c <= sqroot; c++) {
       if(arr[c] == 0) {
+
           for(m = c+1; m < limit; m++) {
               if(m%c == 0) {
                   arr[m] = 1;
               }
           }
+
       }
   }
 }
@@ -55,13 +57,16 @@ int main(int argc, char **argv) {
     }else{
       limit=parsed;
     }
+  }else {
+    limit=16;
   }
+
 
     int sqroot = (int)sqrt(limit);
     int *arr = (int*)malloc(limit * sizeof(int));
     if(arr == NULL) {
         fprintf(stderr, "Error: Failed to allocate memory for arr.\n");
-        exit(-1);
+        return -1;
     }
 
     initarr(limit, arr);
