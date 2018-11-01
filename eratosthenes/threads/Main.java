@@ -27,9 +27,11 @@ public class Main {
 		System.out.print("\n");
 	  /* code */
 	}
+	private static final int MAXTHREADS = Runtime.getRuntime().availableProcessors();
+	private static final int N=10;
 
     public static void main(String[] args) {
-         int MAXTHREADS = Runtime.getRuntime().availableProcessors();
+
 
 				 //System.out.println("IO: "+args[0]+" "+ args.length);
 
@@ -48,10 +50,27 @@ public class Main {
 			       limit=parsed;
 			     }
 			   }
-        SieveThread [] hilos = new SieveThread[MAXTHREADS];
-        int a=(int)(limit/MAXTHREADS);
-				int sqroot = (int)Math.sqrt(limit);
+
+
+
+
+
+
+				//initarr(limit, arr);
+
+				//
+				long startTime, stopTime;
+				double acum = 0;
+				acum = 0;
 				int [] arr = new int[limit];
+
+				for (int j = 1; j <= N; j++) {
+				startTime = System.currentTimeMillis();
+				int a=(int)(limit/MAXTHREADS);
+				int sqroot = (int)Math.sqrt(limit);
+				arr = new int[limit];
+
+				SieveThread [] hilos=new SieveThread[MAXTHREADS];
 
         for (int i = 0; i < MAXTHREADS; i++) {
                 if (i != MAXTHREADS - 1) {
@@ -61,9 +80,6 @@ public class Main {
                 }
         }
 
-
-
-				//initarr(limit, arr);
 				int c;
 				int m;
 
@@ -73,26 +89,36 @@ public class Main {
 						if(arr[c] == 0) {
 
 							for (int i = 0; i < MAXTHREADS; i++) {
-			                    hilos[i].ct=c;
-			        }
+													hilos[i].ct=c;
+							}
 
 
 							for (int i = 0; i < MAXTHREADS ; i++) {
-			            hilos[i].run();
-			        }
+									hilos[i].run();
+							}
 
 
 						}
 				}
 				try {
-	 				 for (int i = 0; i < MAXTHREADS ; i++) {
-	 						 hilos[i].join();
-	 				 }
-	 		 } catch (InterruptedException e) {
-	 				 e.printStackTrace();
-	 		 }
+					 for (int i = 0; i < MAXTHREADS ; i++) {
+							 hilos[i].join();
+					 }
+				} catch (InterruptedException e) {
+					 e.printStackTrace();
+				}
 
-			printprimes(limit, arr);
+
+
+
+					stopTime = System.currentTimeMillis();
+					acum +=  (stopTime - startTime);
+				}
+				System.out.printf("avg time = %.5f\n", (acum / N));
+
+				//
+
+			//printprimes(limit, arr);
 
 
 

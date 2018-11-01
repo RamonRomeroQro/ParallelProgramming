@@ -36,7 +36,8 @@ public class Main {
   	  /* code */
   	}
 
-	private static final int MAXTHREADS = Runtime.getRuntime().availableProcessors();
+    private static final int MAXTHREADS = Runtime.getRuntime().availableProcessors();
+    private static final int N = 10;
 
 	public static void main(String args[]) throws Exception {
 
@@ -55,9 +56,23 @@ public class Main {
         limit=parsed;
       }
     }
-    int sqroot = (int)Math.sqrt(limit);
+
+    long startTime, stopTime;
+    double acum = 0;
+    acum = 0;
     int [] arr = new int[limit];
 
+
+    for (int j = 1; j <= N; j++) {
+    startTime = System.currentTimeMillis();
+    arr = new int[limit];
+
+
+
+
+    //
+
+    int sqroot = (int)Math.sqrt(limit);
     ForkJoinPool pool = new ForkJoinPool(MAXTHREADS);;
     //
 
@@ -71,15 +86,31 @@ public class Main {
         if(arr[c] == 0) {
 
           //
-      			pool.invoke(new ForkSieve(0, limit, arr, c));
+            pool.invoke(new ForkSieve(0, limit, arr, c));
 
-      		//
+          //
 
 
         }
     }
+    //
+      stopTime = System.currentTimeMillis();
+      acum +=  (stopTime - startTime);
+    }
+    System.out.printf("avg time = %.5f\n", (acum / N));
 
-  printprimes(limit, arr);
+
+
+
+
+
+
+
+
+
+
+
+  //printprimes(limit, arr);
 
 
 

@@ -1,19 +1,54 @@
 #include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <tbb/task_scheduler_init.h>
 #include <tbb/parallel_for.h>
 #include <tbb/parallel_reduce.h>
-#include <tbb/blocked_range.h>
+
+
+
 
 using namespace std;
 using namespace tbb;
 
-const int SIZE = 100000000;
 const int GRAIN = 100000;
+
+
+
+const int N = 10;
+const int DISPLAY = 100;
+const int MAX_VALUE = 10000;
+
+class Timer {
+private:
+    timeval startTime;
+    bool 	started;
+
+public:
+    Timer() :started(false) {}
+
+    void start(){
+    	started = true;
+        gettimeofday(&startTime, NULL);
+    }
+
+    double stop(){
+        timeval endTime;
+        long seconds, useconds;
+        double duration = -1;
+
+        if (started) {
+			gettimeofday(&endTime, NULL);
+
+			seconds  = endTime.tv_sec  - startTime.tv_sec;
+			useconds = endTime.tv_usec - startTime.tv_usec;
+
+			duration = (seconds * 1000.0) + (useconds / 1000.0);
+			started = false;
+        }
+		return duration;
+    }
+};
+
+
 
 class ParallelSieve {
 
@@ -90,32 +125,59 @@ int main(int argc, char **argv) {
     limit=16;
   }
 
+	int N=10;
+	Timer t;
+	double ms;
+	double result;
+	ms = 0;
+	int *arr ;
 
-    int sqroot = (int)sqrt(limit);
-    int *arr = (int*)malloc(limit * sizeof(int));
-    if(arr == NULL) {
-        fprintf(stderr, "Error: Failed to allocate memory for arr.\n");
-        return -1;
-    }
+	for (int i = 0; i < N; i++) {
+	t.start();
 
-    initarr(limit, arr);
 
-		int c=2;
-		int m;
-		ParallelSieve  init(arr, c,0);
-		parallel_reduce( blocked_range<int>(0, limit, limit+1),init );
-		arr = init.myArray;
-		for(c = 2; c <= sqroot; c++) {
-				if(arr[c] == 0) {
 
-					init.state=1;
-					init.c=c;
 
-					parallel_reduce( blocked_range<int>(0, limit, limit+1),init );
-					arr = init.myArray;
+//
 
-				}
+int sqroot = (int)sqrt(limit);
+arr = (int*)malloc(limit * sizeof(int));
+if(arr == NULL) {
+		fprintf(stderr, "Error: Failed to allocate memory for arr.\n");
+		return -1;
+}
+
+//initarr(limit, arr);
+
+int c=2;
+int m;
+ParallelSieve  init(arr, c,0);
+parallel_reduce( blocked_range<int>(0, limit, limit+1),init );
+arr = init.myArray;
+for(c = 2; c <= sqroot; c++) {
+		if(arr[c] == 0) {
+
+			init.state=1;
+			init.c=c;
+
+			parallel_reduce( blocked_range<int>(0, limit, GRAIN),init );
+			arr = init.myArray;
+
 		}
+}
+
+
+//
+
+
+
+
+
+		ms += t.stop();
+		}
+	cout << "avg time = " << (ms/N) << " ms\n" << endl;
+
+
 
 
     printprimes(limit, arr);
