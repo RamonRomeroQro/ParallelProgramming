@@ -1,4 +1,3 @@
-
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,22 +20,29 @@ class ParallelSieve {
 public:
 	int *myArray;
 	int c;
-
-	ParallelSieve(int *array, int cm) : myArray(array), c(cm) {}
+	int state;
+	ParallelSieve(int *array, int cm, int s) : myArray(array), c(cm), state(s) {}
 
 	ParallelSieve(ParallelSieve &x, split)
-		: myArray(x.myArray), c(x.c)  {}
+		: myArray(x.myArray), c(x.c) , state(x.state) {}
 	void operator() (const blocked_range<int> &r) {
-		for (int i = r.begin()+1; i != r.end(); i++) {
-			myArray[c] = 0;
-			if(i%c == 0) {
-					myArray[i] = 1;
+		if (state==0){
+			for (int i = r.begin(); i < r.end(); i++) {
+						myArray[i] = 0;
+		}
+	}	else{
+			for (int i = r.begin()+1; i != r.end(); i++) {
+				myArray[c] = 0;
+				if(i%c == 0) {
+						myArray[i] = 1;
 
-			}
-
-
+				}
 		}
 	}
+}
+
+
+
 
 	void join(const ParallelSieve &x) {
 		myArray = x.myArray;
@@ -94,15 +100,19 @@ int main(int argc, char **argv) {
 
     initarr(limit, arr);
 
-		int c;
+		int c=2;
 		int m;
+		ParallelSieve  init(arr, c,0);
+		parallel_reduce( blocked_range<int>(0, limit, limit+1),init );
+		arr = init.myArray;
 		for(c = 2; c <= sqroot; c++) {
 				if(arr[c] == 0) {
 
-					ParallelSieve obj(arr, c);
+					init.state=1;
+					init.c=c;
 
-					parallel_reduce( blocked_range<int>(0, limit, limit+1),obj );
-					arr = obj.myArray;
+					parallel_reduce( blocked_range<int>(0, limit, limit+1),init );
+					arr = init.myArray;
 
 				}
 		}

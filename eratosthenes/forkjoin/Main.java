@@ -57,17 +57,20 @@ public class Main {
     }
     int sqroot = (int)Math.sqrt(limit);
     int [] arr = new int[limit];
-    initarr(limit, arr);
+
+    ForkJoinPool pool = new ForkJoinPool(MAXTHREADS);;
+    //
+
+    //
+    //initarr(limit, arr);
     int c;
     int m;
-    ForkJoinPool pool ;
 
 
     for(c = 2; c <= sqroot; c++) {
         if(arr[c] == 0) {
 
           //
-      			pool = new ForkJoinPool(MAXTHREADS);
       			pool.invoke(new ForkSieve(0, limit, arr, c));
 
       		//

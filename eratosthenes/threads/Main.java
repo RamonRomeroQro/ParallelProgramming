@@ -63,7 +63,7 @@ public class Main {
 
 
 
-				initarr(limit, arr);
+				//initarr(limit, arr);
 				int c;
 				int m;
 
