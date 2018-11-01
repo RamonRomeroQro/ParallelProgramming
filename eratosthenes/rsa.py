@@ -1,5 +1,6 @@
 
 import random
+import subprocess
 
 
 '''
@@ -42,7 +43,8 @@ def multiplicative_inverse(e, phi):
 Tests to see if a number is prime.
 '''
 def is_prime(num):
-    #./run.sh num
+    #./specific.sh 100 1
+
     if num == 2:
         return True
     if num < 2 or num % 2 == 0:
@@ -52,8 +54,41 @@ def is_prime(num):
             return False
     return True
 
+
+
+def binary_search(a_list, item):
+
+
+    first = 0
+    last = len(a_list) - 1
+
+    while first <= last:
+        i = (first + last) // 2
+
+        if a_list[i] == item:
+            return True
+        elif a_list[i] > item:
+            last = i - 1
+        elif a_list[i] < item:
+            first = i + 1
+        else:
+            return False
+
+
 def generate_keypair(p, q):
-    if not (is_prime(p) and is_prime(q)):
+    #validation in sieve
+    sievegen=max(p,q)
+    sievegenmethod=2
+    #subprocess.call(['./specific.sh 100 2'])
+
+    subprocess.call(['./specific.sh',str(sievegen),str(sievegenmethod)])
+    file = open("./sieves/openmpsieve.txt", "r")
+    s=file.read()
+    s=s.split(' ')
+    s.pop()
+    a = list(map(int, s))
+
+    if not (binary_search(a, p) and binary_search(a, q)):
         raise ValueError('Both numbers must be prime.')
     elif p == q:
         raise ValueError('p and q cannot be equal')
@@ -100,19 +135,19 @@ if __name__ == '__main__':
     '''
     Detect if the script is being run directly by the user
     '''
-    print "RSA Encrypter/ Decrypter"
+    print ("RSA Encrypter/ Decrypter")
     #
-    p = int(raw_input("Enter a prime number (17, 19, 23, etc): "))
-    q = int(raw_input("Enter another prime number (Not one you entered above): "))
+    p = int(input("Enter a prime number (17, 19, 23, etc): "))
+    q = int(input("Enter another prime number (Not one you entered above): "))
     #p=int(7)
     #q=int(17)
-    print "Generating your public/private keypairs now . . ."
+    print ("Generating your public/private keypairs now . . .")
     public, private = generate_keypair(p, q)
-    print "Your public key is ", public ," and your private key is ", private
+    print ("Your public key is ", public ," and your private key is ", private)
     message = raw_input("Enter a message to encrypt with your private key: ")
     encrypted_msg = encrypt(private, message)
-    print "Your encrypted message is: "
-    print ''.join(map(lambda x: str(x), encrypted_msg))
-    print "Decrypting message with public key ", public ," . . ."
-    print "Your message is:"
-    print decrypt(public, encrypted_msg)
+    print ("Your encrypted message is: ")
+    print (''.join(map(lambda x: str(x), encrypted_msg)))
+    print ("Decrypting message with public key ", public ," . . .")
+    print ("Your message is:")
+    print (decrypt(public, encrypted_msg))
