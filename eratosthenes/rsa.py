@@ -42,6 +42,7 @@ def multiplicative_inverse(e, phi):
 Tests to see if a number is prime.
 '''
 def is_prime(num):
+    #./run.sh num
     if num == 2:
         return True
     if num < 2 or num % 2 == 0:
@@ -101,10 +102,10 @@ if __name__ == '__main__':
     '''
     print "RSA Encrypter/ Decrypter"
     #
-    #p = int(raw_input("Enter a prime number (17, 19, 23, etc): "))
-    #q = int(raw_input("Enter another prime number (Not one you entered above): "))
-    p=int(7)
-    q=int(17)
+    p = int(raw_input("Enter a prime number (17, 19, 23, etc): "))
+    q = int(raw_input("Enter another prime number (Not one you entered above): "))
+    #p=int(7)
+    #q=int(17)
     print "Generating your public/private keypairs now . . ."
     public, private = generate_keypair(p, q)
     print "Your public key is ", public ," and your private key is ", private

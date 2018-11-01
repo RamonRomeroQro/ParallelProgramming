@@ -37,15 +37,15 @@ public class Main {
   	}
 
     private static final int MAXTHREADS = Runtime.getRuntime().availableProcessors();
-    private static final int N = 10;
 
 	public static void main(String args[]) throws Exception {
 
+    int N = 10;
     int limit=16;
-    if (args.length>1){
-      System.err.println("Error: uso: %s [limite_superior_positivo]\n");
+    if (args.length>2){
+      System.err.println("Error: uso: Main [limite_superior_positivo]\n");
       System.exit(-1);
-    }else if (args.length==1) {
+    }else if (args.length==1 || args.length==2) {
       int parsed=Integer.parseInt(args[0]);
       //System.err.println(parsed);
 
@@ -55,6 +55,11 @@ public class Main {
       }else{
         limit=parsed;
       }
+      if (args.length==2){
+        N=1;
+
+      }
+
     }
 
     long startTime, stopTime;
@@ -97,7 +102,9 @@ public class Main {
       stopTime = System.currentTimeMillis();
       acum +=  (stopTime - startTime);
     }
-    System.out.printf("avg time = %.5f\n", (acum / N));
+    if (args.length==1){
+      System.out.printf("times %d - avg time = %.5f ms\n", N, (acum / N));
+    }
 
 
 
@@ -110,7 +117,7 @@ public class Main {
 
 
 
-  //printprimes(limit, arr);
+  printprimes(limit, arr);
 
 
 
@@ -139,7 +146,7 @@ public class Main {
 *--------------------------------------------------------------*/
 
 class ForkSieve extends RecursiveAction {
-	private static final long MIN = 10000;
+	private static final long MIN = 10;
   public int [] arr;
   public int ct=-1;
   public int begin;
@@ -156,7 +163,7 @@ class ForkSieve extends RecursiveAction {
 
 	public void computeDirectly() {
 
-    for (int i = this.begin+1; i < this.end; i++) {
+    for (int i = this.begin; i < this.end; i++) {
       //System.err.println(ct+" "+i);
 
       this.arr[ct] = 0;

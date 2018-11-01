@@ -28,32 +28,33 @@ public class Main {
 	  /* code */
 	}
 	private static final int MAXTHREADS = Runtime.getRuntime().availableProcessors();
-	private static final int N=10;
 
     public static void main(String[] args) {
 
 
 				 //System.out.println("IO: "+args[0]+" "+ args.length);
 
-				 int limit=16;
-			   if (args.length>1){
-					 System.err.println("Error: uso: %s [limite_superior_positivo]\n");
-					 System.exit(-1);
-			   }else if (args.length==1) {
-			     int parsed=Integer.parseInt(args[0]);
-					 //System.err.println(parsed);
+				 int N = 10;
+		     int limit=16;
+		     if (args.length>2){
+		       System.err.println("Error: uso: Main [limite_superior_positivo]\n");
+		       System.exit(-1);
+		     }else if (args.length==1 || args.length==2) {
+		       int parsed=Integer.parseInt(args[0]);
+		       //System.err.println(parsed);
 
-			     if (parsed<0){
-						 System.err.println("Error: uso: %s [limite_superior_positivo]\n");
-						 System.exit(-1);
-			     }else{
-			       limit=parsed;
-			     }
-			   }
+		       if (parsed<0){
+		         System.err.println("Error: uso: %s [limite_superior_positivo]\n");
+		         System.exit(-1);
+		       }else{
+		         limit=parsed;
+		       }
+		       if (args.length==2){
+		         N=1;
 
+		       }
 
-
-
+		     }
 
 
 				//initarr(limit, arr);
@@ -114,11 +115,12 @@ public class Main {
 					stopTime = System.currentTimeMillis();
 					acum +=  (stopTime - startTime);
 				}
-				System.out.printf("avg time = %.5f\n", (acum / N));
-
+				if (args.length==1){
+					System.out.printf("times %d - avg time = %.5f ms\n", N, (acum / N));
+				}
 				//
 
-			//printprimes(limit, arr);
+			printprimes(limit, arr);
 
 
 
@@ -151,10 +153,11 @@ class SieveThread extends Thread {
 
 
     public void run() {
-			for (int i = this.begin+1; i < this.end; i++) {
-				//System.err.println(ct+" "+i);
+			for (int i = this.begin; i != this.end; i++) {
 
 				this.arr[ct] = 0;
+				//System.err.println(ct+" "+i);
+
 				if(i%ct == 0) {
 						this.arr[i] = 1;
 

@@ -108,12 +108,13 @@ void  printprimes(int limit, int *arr) {
 
 int main(int argc, char **argv) {
 
+	int N=10;
   int limit ;
-  if (argc>2){
+  if (argc>3){
     fprintf(stderr, "Error: uso: %s [limite_superior_positivo]\n", argv[0]);
     return -1;
 
-  }else if (argc==2) {
+  }else if (argc==2 || argc==3) {
     int parsed=atoi(argv[1]);
     if (parsed<0){
       fprintf(stderr, "Error: uso: %s [limite_superior_positivo]\n", argv[0]);
@@ -121,11 +122,13 @@ int main(int argc, char **argv) {
     }else{
       limit=parsed;
     }
+    if (argc==3) {
+      N=1;
+    }
   }else {
     limit=16;
   }
 
-	int N=10;
 	Timer t;
 	double ms;
 	double result;
@@ -175,10 +178,10 @@ for(c = 2; c <= sqroot; c++) {
 
 		ms += t.stop();
 		}
-	cout << "avg time = " << (ms/N) << " ms\n" << endl;
 
-
-
+		if (argc==2){
+			cout << "times "<< N <<" - avg time = " << (ms/N) << " ms" << endl;
+    }
 
     printprimes(limit, arr);
 

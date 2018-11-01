@@ -63,19 +63,22 @@ void  printprimes(int limit, int *arr) {
 
 
 int main(int argc, char **argv) {
-
+  int N=10;
   int limit ;
-  if (argc>2){
+  if (argc>3){
     fprintf(stderr, "Error: uso: %s [limite_superior_positivo]\n", argv[0]);
     return -1;
 
-  }else if (argc==2) {
+  }else if (argc==2 || argc==3) {
     int parsed=atoi(argv[1]);
     if (parsed<0){
       fprintf(stderr, "Error: uso: %s [limite_superior_positivo]\n", argv[0]);
       return -1;
     }else{
       limit=parsed;
+    }
+    if (argc==3) {
+      N=1;
     }
   }else {
     limit=16;
@@ -86,7 +89,6 @@ int main(int argc, char **argv) {
 
     int *arr;
 
-    int N=10;
     double ms;
     ms = 0;
     int i;
@@ -121,8 +123,10 @@ int main(int argc, char **argv) {
       //->
       ms += stop_timer();
     }
-    printf("avg time = %.5lf ms\n", (ms / N));
 
+    if (argc==2){
+      printf("times %i - avg time = %.5lf ms\n",N,(ms / N));
+    }
 
 
 
