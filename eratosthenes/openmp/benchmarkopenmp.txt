@@ -1,0 +1,13 @@
+MacBook-Pro-de-Ramon-2:openmp ramonromero$ clang -Xpreprocessor -fopenmp -lomp openmpsieve.c
+MacBook-Pro-de-Ramon-2:openmp ramonromero$ ./a.out 10
+times 10 - avg time = 0.36910 ms
+MacBook-Pro-de-Ramon-2:openmp ramonromero$ ./a.out 100
+times 10 - avg time = 0.17070 ms
+MacBook-Pro-de-Ramon-2:openmp ramonromero$ ./a.out 1000
+times 10 - avg time = 0.42720 ms
+MacBook-Pro-de-Ramon-2:openmp ramonromero$ ./a.out 10000
+times 10 - avg time = 1.99520 ms
+MacBook-Pro-de-Ramon-2:openmp ramonromero$ ./a.out 100000
+times 10 - avg time = 15.82980 ms
+MacBook-Pro-de-Ramon-2:openmp ramonromero$ ./a.out 1000000
+times 10 - avg time = 377.19720 ms

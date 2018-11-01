@@ -22,7 +22,7 @@ then
   ./openmp.out $1 x > ./../sieves/openmpsieve.txt
   rm ./openmp.out
   cd ..
-elif [ $2 -eq  3]
+elif [ $2 -eq  3 ]
 then
   #tbb
   cd ./tbb
@@ -31,7 +31,7 @@ then
   ./tbb.out $1 x > ./../sieves/tbbsieve.txt
   rm ./tbb.out
   cd ..
-elif [ $2 -eq  4]
+elif [ $2 -eq  4 ]
 then
   #threads
   cd ./threads
@@ -40,7 +40,7 @@ then
   java Main $1 x > ./../sieves/threadsieve.txt
   rm -f *.class
 
-elif [ $2 -eq  4]
+elif [ $2 -eq  5 ]
 then
   #fj
   cd ./forkjoin

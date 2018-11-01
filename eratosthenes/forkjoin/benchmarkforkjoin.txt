@@ -1,0 +1,13 @@
+MacBook-Pro-de-Ramon-2:forkjoin ramonromero$ javac Main.java
+MacBook-Pro-de-Ramon-2:forkjoin ramonromero$ java Main 10
+times 10 - avg time = 1.40000 ms
+MacBook-Pro-de-Ramon-2:forkjoin ramonromero$ java Main 100
+times 10 - avg time = 2.30000 ms
+MacBook-Pro-de-Ramon-2:forkjoin ramonromero$ java Main 1000
+times 10 - avg time = 5.00000 ms
+MacBook-Pro-de-Ramon-2:forkjoin ramonromero$ java Main 10000
+times 10 - avg time = 18.10000 ms
+MacBook-Pro-de-Ramon-2:forkjoin ramonromero$ java Main 100000
+times 10 - avg time = 237.10000 ms
+MacBook-Pro-de-Ramon-2:forkjoin ramonromero$ java Main 1000000
+times 10 - avg time = 1217.90000 ms

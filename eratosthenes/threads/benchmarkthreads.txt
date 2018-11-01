@@ -1,0 +1,13 @@
+MacBook-Pro-de-Ramon-2:threads ramonromero$ javac Main.java
+MacBook-Pro-de-Ramon-2:threads ramonromero$ java Main 10
+times 10 - avg time = 0.10000 ms
+MacBook-Pro-de-Ramon-2:threads ramonromero$ java Main 100
+times 10 - avg time = 0.10000 ms
+MacBook-Pro-de-Ramon-2:threads ramonromero$ java Main 1000
+times 10 - avg time = 0.30000 ms
+MacBook-Pro-de-Ramon-2:threads ramonromero$ java Main 10000
+times 10 - avg time = 1.40000 ms
+MacBook-Pro-de-Ramon-2:threads ramonromero$ java Main 100000
+times 10 - avg time = 19.40000 ms
+MacBook-Pro-de-Ramon-2:threads ramonromero$ java Main 1000000
+times 10 - avg time = 563.80000 ms
