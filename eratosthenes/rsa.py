@@ -86,6 +86,8 @@ def generate_keypair(p, q):
     s=file.read()
     s=s.split(' ')
     s.pop()
+    print(s)
+
     a = list(map(int, s))
 
     if not (binary_search(a, p) and binary_search(a, q)):
