@@ -86,7 +86,7 @@ def generate_keypair(p, q):
     s=file.read()
     s=s.split(' ')
     s.pop()
-    print(s)
+    #print(s)
 
     a = list(map(int, s))
 
